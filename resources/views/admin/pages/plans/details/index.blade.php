@@ -12,7 +12,7 @@
 
     <div class="d-flex">
         <h1>Detalhes do plano {{$plan->name}}</h1>
-        <a href="{{ route('plans.create') }}" class="btn btn-dark ml-2">Adicionar</a>
+        <a href="{{ route('details.plan.create', $plan->url) }}" class="btn btn-dark ml-2">Adicionar</a>
     </div>
 @stop
 

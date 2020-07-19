@@ -8,6 +8,9 @@ class DetailPlan extends Model
 {
     protected $table = 'details_plan';
 
+    protected $fillable = [
+        'name'
+    ];
 
     // RELACIONAMENTO
     public function plan()
