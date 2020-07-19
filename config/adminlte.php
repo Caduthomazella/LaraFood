@@ -236,6 +236,11 @@ return [
             'url'  => 'admin/plans',
             'icon' => 'far fa-list-alt'
         ],
+        [
+            'text' => 'Perfils',
+            'url'  => 'admin/profiles',
+            'icon' => 'fas fa-user'
+        ],
     ],
 
     /*
