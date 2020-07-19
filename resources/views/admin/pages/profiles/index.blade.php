@@ -23,6 +23,7 @@
                 <button type="submit" class="btn btn-dark">Filtrar</button>
             </form>
         </div>
+
         <div class="card-body">
             <table class="table table-condensed">
                 <thead>
