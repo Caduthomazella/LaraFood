@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\ACL;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateProfile;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class ProfileController extends Controller
         return view('admin.pages.profiles.create'); 
     }
 
-    public function store(Request $request)
+    public function store(StoreUpdateProfile $request)
     {
         $this->repository->create($request->all());
 
@@ -48,7 +49,7 @@ class ProfileController extends Controller
         return view('admin.pages.profiles.edit', compact('profile'));
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreUpdateProfile $request, $id)
     {
         if(!$profile = $this->repository->find($id)) {
             return redirect()->back();
