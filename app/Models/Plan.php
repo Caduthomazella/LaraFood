@@ -13,13 +13,21 @@ class Plan extends Model
         'description'
     ];
 
-    // RELACIONAMENTO
+    /**
+     * get relationship
+     */
     public function details()
     {
         return $this->hasMany(DetailPlan::class);
     }
+    public function profiles()
+    {
+        return $this->belongsToMany(Profile::class);
+    }
 
-
+    /**
+     * get filter to view
+     */
     public function search($filter = null)
     {
         $results = $this->where('name', 'LIKE', "%{$filter}%")
