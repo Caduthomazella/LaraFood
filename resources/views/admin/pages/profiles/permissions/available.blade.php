@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Permissões de Perfis')
+@section('title', 'Permissões disponiveis')
 
 @section('content_header')
     <ol class="breadcrumb">
@@ -9,9 +9,7 @@
     </ol>
 
     <div class="d-flex">
-        <h1>Permissões do Perfil de <b>{{$profile->name}}</b></h1>
-
-        <a href="{{ route('profiles.permissions.available', $profile->id) }}" class="btn btn-dark ml-2">Adicionar nova Permissão</a>
+        <h1>Permissões disponiveis para perfil de <b>{{$profile->name}}</b></h1>
     </div>
 @stop
 
@@ -29,21 +27,32 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
+                        <th width="50px">#</th>
                         <th>Nome</th>
-                        <th width="250">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($permissions as $permission)
+                    <form action="{{ route('profiles.permissions.attach', $profile->id) }}" method="post">
+                        @csrf
+                        
+                        @foreach ($permissions as $permission)
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="permissions[]" value="{{$permission->id}}">
+                                </td>
+                                <td>
+                                    {{ $permission->name }}
+                                </td>
+                            </tr>
+                        @endforeach
+
                         <tr>
-                            <td>
-                                {{ $permission->name }}
-                            </td>
-                            <td style="width=10px">
-                                <a href="#" class="btn btn-info">Edit</a>
+                            <td colspan="500">
+                                @include('admin.includes.alerts')
+                                <button type="submit" class="btn btn-success">Vincular</button>
                             </td>
                         </tr>
-                    @endforeach
+                    </form>
                 </tbody>
             </table>
         </div>

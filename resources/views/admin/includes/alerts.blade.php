@@ -21,3 +21,13 @@
         {{ session('error') }}
     </div>
 @endif
+
+@if (session('info'))
+    <div class="alert alert-warning">
+        <ul>
+            <li>
+                {{ session('info') }}
+            </li>
+        </ul>
+    </div>
+@endif
