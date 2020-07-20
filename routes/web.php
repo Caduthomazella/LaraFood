@@ -2,6 +2,7 @@
 
 Route::prefix('admin')
         ->namespace('Admin')
+        ->middleware('auth')
         ->group(function() {
 
     /**
@@ -64,6 +65,9 @@ Route::prefix('admin')
     Route::get('/', 'PlanController@index')->name('admin.index');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Site\SiteController@index')->name('site.home');
+
+/**
+ * Auth Routes
+ */
+Auth::routes();
