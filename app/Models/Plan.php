@@ -36,4 +36,12 @@ class Plan extends Model
 
         return $results;
     }
+
+    /**
+     * 
+     */
+    public function tenants()
+    {
+        return $this->hasMany(Tenant::class);
+    }
 }
