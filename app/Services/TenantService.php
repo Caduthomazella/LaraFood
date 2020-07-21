@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Str;
 use App\Models\Plan;
 
 class TenantService
@@ -28,8 +27,7 @@ class TenantService
         return $this->plan->tenants()->create([
 
             'cnpj' => $data['cnpj'],
-            'name' => $data['empresa'],
-            'url' => Str::kebab($data['empresa']),
+            'name' => $data['empresa'],       
             'email' => $data['email'],
 
             'subscription' => now(),
